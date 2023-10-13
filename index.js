@@ -18,7 +18,6 @@ app.post('/screenshot', async (req, res) => {
     await page.goto(url);
     
     // Adjust the viewport and wait for page content to load
-    await page.setViewport({ width: 1000, height: 800 });
     await page.waitForTimeout(1000); 
 
     const screenshot = await page.screenshot({ fullPage: true });
