@@ -7,8 +7,9 @@ app.get('/screenshot', async (req, res) => {
   try {
     const { url } = req.query;
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+    const browser = await puppeteer.launch({
+      headless: 'new', // Use the new headless mode
+    });    const page = await browser.newPage();
 
     await page.goto(url);
     const screenshot = await page.screenshot();
